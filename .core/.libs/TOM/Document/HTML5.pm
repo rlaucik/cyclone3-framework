@@ -215,7 +215,6 @@ $TOM::Document::base::copyright
 	
 	# META
 	$self->{'OUT'}{'HEADER'} .= " <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n";
-	$self->{'OUT'}{'HEADER'} .= " <meta http-equiv=\"content-language\" content=\"<%HEADER-LNG%>\" />\n";
 	$self->{'OUT'}{'HEADER'} .= " <meta http-equiv=\"content-type\" content=\"text/html; charset=<%CODEPAGE%>\" />\n"
 	unless $self->{'ENV'}{'head'}{'meta'}{'content-type'};
 #	$self->{'OUT'}{'HEADER'} .= " <meta http-equiv=\"Accept-CH\" content=\"DPR, Width, Viewport-Width\" />\n"
