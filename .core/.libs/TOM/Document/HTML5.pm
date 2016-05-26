@@ -171,7 +171,7 @@ sub prepare
 	$self->{'OUT'}{'HEADER'} .= $self->{'ENV'}{'DOCTYPE'}."\n";
 	
 	$self->{'OUT'}{'HEADER'} .=
-		'<html>'."\n";
+		'<html lang="'.$tom::lng.'">'."\n";
 	
 	$self->{'OUT'}{'HEADER'} .= qq{<!--
 $TOM::Document::base::copyright
