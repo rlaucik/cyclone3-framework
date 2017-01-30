@@ -2176,6 +2176,7 @@ sub video_add
 	my $tr=new TOM::Database::SQL::transaction('db_h'=>"main");
 	
 	$env{'video_format.ID'}=$App::510::video_format_original_ID unless $env{'video_format.ID'};
+	$env{'video_ent.status_embedblock'}=$App::510::video_embedblock unless $env{'video_ent.status_embedblock'};
 	$env{'video_part.part_id'}=1 unless $env{'video_part.part_id'};
 	
 	$env{'video.ID_entity'}=$env{'video_ent.ID_entity'} if $env{'video_ent.ID_entity'};
@@ -5248,6 +5249,8 @@ sub broadcast_program_add
 		$data{'name_url'}=$env{'program.name_url'}
 			if (exists $env{'program.name_url'} && ($env{'program.name_url'} ne $program{'name_url'}));
 		
+		$env{'program.status_embedblock'}=$App::510::program_embedblock unless $env{'program.status_embedblock'};
+		
 		$env{'program.video_aspect'}=sprintf('%.3f',$env{'program.video_aspect'})
 			if $env{'program.video_aspect'};
 		
@@ -5722,7 +5725,7 @@ sub video_part_cuepoint_add
 
 sub _broadcast_program_index
 {
-	return 1 if TOM::Engine::jobify(\@_,{'routing_key' => 'db:'.$App::510::db_name,'class'=>'indexer'}); # do it in background
+	#return 1 if TOM::Engine::jobify(\@_,{'routing_key' => 'db:'.$App::510::db_name,'class'=>'indexer'}); # do it in background
 	
 	my %env=@_;
 	return undef unless $env{'ID_entity'};
@@ -5786,7 +5789,7 @@ sub _broadcast_program_index
 
 sub _broadcast_series_index
 {
-	return 1 if TOM::Engine::jobify(\@_,{'routing_key' => 'db:'.$App::510::db_name,'class'=>'indexer'}); # do it in background
+	#return 1 if TOM::Engine::jobify(\@_,{'routing_key' => 'db:'.$App::510::db_name,'class'=>'indexer'}); # do it in background
 	
 	my %env=@_;
 	return undef unless $env{'ID_entity'};
@@ -5840,8 +5843,6 @@ sub _broadcast_series_index
 	}
 	
 	return undef unless $Ext::Solr;
-	
-	
 	
 	return 1;
 }

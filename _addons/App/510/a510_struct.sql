@@ -647,6 +647,7 @@ CREATE TABLE `/*db_name*/`.`/*addon*/_broadcast_program` (
   `status_live_geoblock` char(1) CHARACTER SET ascii DEFAULT NULL,
   `status_internet` char(1) CHARACTER SET ascii DEFAULT NULL,
   `status_geoblock` char(1) CHARACTER SET ascii DEFAULT NULL,
+  `status_embedblock` char(1) CHARACTER SET ascii DEFAULT 'N',
   `status_highlight` char(1) CHARACTER SET ascii NOT NULL DEFAULT 'N',
   `recording` char(1) CHARACTER SET ascii NOT NULL DEFAULT 'N', -- it is recording now
   `priority_A` tinyint(3) unsigned DEFAULT NULL,
@@ -719,6 +720,7 @@ CREATE TABLE `/*db_name*/`.`/*addon*/_broadcast_program_j` (
   `status_live_geoblock` char(1) CHARACTER SET ascii DEFAULT NULL,
   `status_internet` char(1) CHARACTER SET ascii DEFAULT NULL,
   `status_geoblock` char(1) CHARACTER SET ascii DEFAULT NULL,
+  `status_embedblock` char(1) CHARACTER SET ascii DEFAULT 'N',
   `status_highlight` char(1) CHARACTER SET ascii NOT NULL DEFAULT 'N',
   `recording` char(1) CHARACTER SET ascii NOT NULL DEFAULT 'N',
   `priority_A` tinyint(3) unsigned DEFAULT NULL,

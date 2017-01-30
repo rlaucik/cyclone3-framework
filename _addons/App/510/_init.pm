@@ -23,6 +23,8 @@ BEGIN {main::_log("<={LIB} ".__PACKAGE__)}
 our $VERSION='1';
 our $smil=$App::510::smil || 0;
 our $smil2file_path=$App::510::smil2file_path || '../file';
+our $video_embedblock=$App::510::video_embedblock || 'N';
+our $program_embedblock=$App::510::program_embedblock || 'N';
 
 =head1 SYNOPSIS
 
@@ -161,9 +163,9 @@ main::_log("db_name='$db_name' H_a510='$tom::H_a510'");
 our $video_format_ext_default=$App::510::video_format_ext_default || 'avi';
 
 our %priority;
-$priority{'A'}=$App::401::priority{'A'} || 1;
-$priority{'B'}=$App::401::priority{'B'} || undef;
-$priority{'C'}=$App::401::priority{'C'} || undef;
+$priority{'A'}=$App::510::priority{'A'} || 1;
+$priority{'B'}=$App::510::priority{'B'} || undef;
+$priority{'C'}=$App::510::priority{'C'} || undef;
 
 our $original_playable;
 our $video_format_original_ID;
